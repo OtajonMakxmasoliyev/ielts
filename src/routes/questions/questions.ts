@@ -104,7 +104,6 @@ router.post("/check-answers", async (req, res) => {
         }
         const user = await User.findOne({ email, active: true })
         const result: IAnswer | { err: string } = await checkAnswers({ questionId, answers });
-        console.log(user);
 
         if ("err" in result) {
             return res.status(400).json(result);
